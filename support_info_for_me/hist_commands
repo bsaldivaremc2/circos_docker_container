@@ -1,0 +1,14 @@
+ 1708  sudo docker build -t pyw .
+ 1709  sudo docker build --net host -t pyw .
+ 1710  sudo docker build --network=host -t pyw .
+ 1711  sudo docker run -dit -p 8080:80 --name pywww pyw
+ 1712  sudo docker logs pywww
+ 1713  sudo docker run -dit -p 8081:80 --name pywww1 pyw
+ 1714  sudo docker run -dit -p 80:80 --name pywww2 pyw
+ 1716  sudo docker stop pywww pywww2 pywww1
+ 1717  sudo docker start pywww pywww2 pywww1
+ 1718  sudo docker run -dit -p 8088:80 -net=host --name pywww3 pyw
+ 1719  sudo docker run -dit -p 8088:80 --net=host --name pywww3 pyw
+ 1720  sudo docker stop pywww pywww2 pywww1 pywww3
+ 2054  history | grep docker | grep pyw
+ 2055  history | grep docker | grep pyw > hist_commands

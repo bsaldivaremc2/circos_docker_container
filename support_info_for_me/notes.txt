@@ -1,0 +1,24 @@
+#ENTRYPOINT ["perl","/app/circos-0.69-6/bin/circos"]
+#CMD ["perl","circos"]
+sudo docker run -v /home/bpse/Documents/Software/Github/TMP/:/app/mnt/ -it circos1/latest
+sudo docker run -v /home/bpse/Documents/Software/Github/TMP/:/app/mnt/ -it --rm circos1/latest
+cp circos.png /app/mnt/
+
+
+
+#
+sudo docker build --network=host -t circos-bash-0.69-6 .
+sudo docker run -v /home/bpse/Documents/Software/Github/TMP/:/app/mnt/ -it --rm circos-bash-0.69-6
+
+
+docker push bsaldivar/circos-bash:tagname
+
+sudo docker tag circos-bash-0.69-6:latest bsaldivar/circos-bash:20120914
+sudo docker push bsaldivar/circos-bash:20120914
+
+docker pull bsaldivar/circos-bash:20120914
+
+
+#
+sudo docker build --network=host -t circos-simple .
+sudo docker run -v /home/bpse/Documents/Software/Github/TMP/:/app/mnt/ -it --rm circos-simple
